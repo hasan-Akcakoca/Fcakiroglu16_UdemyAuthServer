@@ -1,0 +1,15 @@
+# Asp.Net Core API + Token bazlı kimlik doğrulama(JWT)
+
+Katmanlı mimari yapısı ile token bazlı kimlik doğrulama/yetkilendirme yapısını inşa etmeyi öğreneceksiniz.
+Puan: 4,9
+Oluşturan [Fatih Çakıroğlu](https://www.udemy.com/course/aspnet-core-api-token-bazli-kimlik-dogrulama-jwt/#instructor-1)
+Fatih Çakıroğlu
+
+Son güncelleme tarihi: 09/2022
+
+Türkçe
+
+11,5 saat
+
+https://www.udemy.com/course/aspnet-core-api-token-bazli-kimlik-dogrulama-jwt/
+https://github.com/Fcakiroglu16/UdemyAuthServer
