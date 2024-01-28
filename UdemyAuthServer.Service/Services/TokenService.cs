@@ -11,19 +11,19 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using UdemyAuthServer.Core.Configuration;
-using UdemyAuthServer.Core.DTOs;
-using UdemyAuthServer.Core.Models;
+using UdemyAuthServer.Core.Dto;
+using UdemyAuthServer.Core.Entities;
 using UdemyAuthServer.Core.Services;
 
 namespace UdemyAuthServer.Service.Services
 {
     public class TokenService : ITokenService
     {
-        private readonly UserManager<UserApp> _userManager;
+        private readonly UserManager<User> _userManager;
 
-        private readonly CustomTokenOption _tokenOption;
+        private readonly TokenOption _tokenOption;
 
-        public TokenService(UserManager<UserApp> userManager, IOptions<CustomTokenOption> options)
+        public TokenService(UserManager<User> userManager, IOptions<TokenOption> options)
         {
             _userManager = userManager;
             _tokenOption = options.Value;
@@ -41,7 +41,7 @@ namespace UdemyAuthServer.Service.Services
             return Convert.ToBase64String(numberByte);
         }
 
-        private IEnumerable<Claim> GetClaims(UserApp userApp, List<String> audiences)
+        private IEnumerable<Claim> GetClaims(User userApp, List<String> audiences)
         {
             var userList = new List<Claim> {
             new Claim(ClaimTypes.NameIdentifier,userApp.Id),
@@ -66,7 +66,7 @@ namespace UdemyAuthServer.Service.Services
             return claims;
         }
 
-        public TokenDto CreateToken(UserApp userApp)
+        public TokenDto CreateToken(User userApp)
         {
             var accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOption.AccessTokenExpiration);
             var refreshTokenExpiration = DateTime.Now.AddMinutes(_tokenOption.RefreshTokenExpiration);

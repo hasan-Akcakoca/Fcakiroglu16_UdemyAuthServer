@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using UdemyAuthServer.Core.DTOs;
+using UdemyAuthServer.Core.Dto;
 
 namespace UdemyAuthServer.Core.Services
 {

@@ -5,24 +5,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UdemyAuthServer.Core.DTOs;
-using UdemyAuthServer.Core.Models;
+using UdemyAuthServer.Core.Dto;
+using UdemyAuthServer.Core.Entities;
 using UdemyAuthServer.Core.Services;
 
 namespace UdemyAuthServer.Service.Services
 {
     public class UserService : IUserService
     {
-        private readonly UserManager<UserApp> _userManager;
+        private readonly UserManager<User> _userManager;
 
-        public UserService(UserManager<UserApp> userManager)
+        public UserService(UserManager<User> userManager)
         {
             _userManager = userManager;
         }
 
         public async Task<Response<UserAppDto>> CreateUserAsync(CreateUserDto createUserDto)
         {
-            var user = new UserApp { Email = createUserDto.Email, UserName = createUserDto.UserName };
+            var user = new User { Email = createUserDto.Email, UserName = createUserDto.UserName };
 
             var result = await _userManager.CreateAsync(user, createUserDto.Password);
 

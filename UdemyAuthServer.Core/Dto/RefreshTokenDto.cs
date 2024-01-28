@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UdemyAuthServer.Core.DTOs
+namespace UdemyAuthServer.Core.Dto
 {
     public class RefreshTokenDto
     {

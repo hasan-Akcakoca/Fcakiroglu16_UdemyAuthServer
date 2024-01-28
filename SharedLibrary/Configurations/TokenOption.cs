@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharedLibrary.Configurations
 {
-    public class CustomTokenOption
+    public class TokenOption
     {
         public List<String> Audience { get; set; }
         public string Issuer { get; set; }

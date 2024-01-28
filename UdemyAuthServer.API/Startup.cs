@@ -19,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UdemyAuthServer.Core.Configuration;
-using UdemyAuthServer.Core.Models;
+using UdemyAuthServer.Core.Entities;
 using UdemyAuthServer.Core.Repositories;
 using UdemyAuthServer.Core.Services;
 using UdemyAuthServer.Core.UnitOfWork;
@@ -57,13 +57,13 @@ namespace UdemyAuthServer.API
                 });
             });
 
-            services.AddIdentity<UserApp, IdentityRole>(Opt =>
+            services.AddIdentity<User, IdentityRole>(Opt =>
             {
                 Opt.User.RequireUniqueEmail = true;
                 Opt.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
-            services.Configure<CustomTokenOption>(Configuration.GetSection("TokenOption"));
+            services.Configure<TokenOption>(Configuration.GetSection("TokenOption"));
 
             services.Configure<List<Client>>(Configuration.GetSection("Clients"));
 
@@ -73,7 +73,7 @@ namespace UdemyAuthServer.API
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts =>
              {
-                 var tokenOptions = Configuration.GetSection("TokenOption").Get<CustomTokenOption>();
+                 var tokenOptions = Configuration.GetSection("TokenOption").Get<TokenOption>();
                  opts.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
                  {
                      ValidIssuer = tokenOptions.Issuer,

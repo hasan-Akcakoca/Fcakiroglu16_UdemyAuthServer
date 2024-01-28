@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using UdemyAuthServer.Core.Models;
+using UdemyAuthServer.Core.Entities;
 
 namespace UdemyAuthServer.Data.Configurations
 {

@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using UdemyAuthServer.Core.DTOs;
-using UdemyAuthServer.Core.Models;
+using UdemyAuthServer.Core.Dto;
+using UdemyAuthServer.Core.Entities;
 
 namespace UdemyAuthServer.Service
 {
@@ -12,7 +12,7 @@ namespace UdemyAuthServer.Service
         public DtoMapper()
         {
             CreateMap<ProductDto, Product>().ReverseMap();
-            CreateMap<UserAppDto, UserApp>().ReverseMap();
+            CreateMap<UserAppDto, User>().ReverseMap();
         }
     }
 }

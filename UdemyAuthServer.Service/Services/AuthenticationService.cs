@@ -8,8 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UdemyAuthServer.Core.Configuration;
-using UdemyAuthServer.Core.DTOs;
-using UdemyAuthServer.Core.Models;
+using UdemyAuthServer.Core.Dto;
+using UdemyAuthServer.Core.Entities;
 using UdemyAuthServer.Core.Repositories;
 using UdemyAuthServer.Core.Services;
 using UdemyAuthServer.Core.UnitOfWork;
@@ -20,11 +20,11 @@ namespace UdemyAuthServer.Service.Services
     {
         private readonly List<Client> _clients;
         private readonly ITokenService _tokenService;
-        private readonly UserManager<UserApp> _userManager;
+        private readonly UserManager<User> _userManager;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<UserRefreshToken> _userRefreshTokenService;
 
-        public AuthenticationService(IOptions<List<Client>> optionsClient, ITokenService tokenService, UserManager<UserApp> userManager, IUnitOfWork unitOfWork, IGenericRepository<UserRefreshToken> userRefreshTokenService)
+        public AuthenticationService(IOptions<List<Client>> optionsClient, ITokenService tokenService, UserManager<User> userManager, IUnitOfWork unitOfWork, IGenericRepository<UserRefreshToken> userRefreshTokenService)
         {
             _clients = optionsClient.Value;
 

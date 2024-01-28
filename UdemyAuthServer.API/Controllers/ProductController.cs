@@ -5,8 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UdemyAuthServer.Core.DTOs;
-using UdemyAuthServer.Core.Models;
+using UdemyAuthServer.Core.Dto;
+using UdemyAuthServer.Core.Entities;
 using UdemyAuthServer.Core.Services;
 
 namespace UdemyAuthServer.API.Controllers

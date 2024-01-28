@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UdemyAuthServer.Core.Models
+namespace UdemyAuthServer.Core.Entities
 {
     public class UserRefreshToken
     {

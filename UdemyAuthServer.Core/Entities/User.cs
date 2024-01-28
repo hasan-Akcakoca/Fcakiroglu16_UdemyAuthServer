@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace UdemyAuthServer.Core.Models
+namespace UdemyAuthServer.Core.Entities
 {
-    public class UserApp : IdentityUser
+    public class User : IdentityUser
     {
         public string City { get; set; }
     }

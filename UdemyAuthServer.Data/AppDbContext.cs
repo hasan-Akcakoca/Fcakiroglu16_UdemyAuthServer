@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using UdemyAuthServer.Core.Models;
+using UdemyAuthServer.Core.Entities;
 
 namespace UdemyAuthServer.Data
 {
     // Identity üyelik tablolar
     //
 
-    public class AppDbContext : IdentityDbContext<UserApp, IdentityRole, string>
+    public class AppDbContext : IdentityDbContext<User, IdentityRole, string>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
 
